@@ -20,18 +20,18 @@ var del = require('del');
 var tscProject = tsc.createProject('tsconfig.json', { typescript: require('typescript') });
 
 var path = {
-    tscripts: './app/**/*.ts',
-    scripts: './app/components/**/*.js',
-    styles: ['app/styles/main.scss'],
-    index: 'app/index.html',
-    partials: ['app/components/**/*.html', '!app/index.html'],
-    tsdist: 'app',
+    tscripts: './src/**/*.ts',
+    scripts: './src/modules/**/*.js',
+    styles: ['src/styles/main.scss'],
+    index: 'src/index.html',
+    partials: ['src/modules/**/*.html', '!src/index.html'],
+    tsdist: 'src',
     dist: 'dist'
 };
 
 var config = {
     appconfig: {
-        src: ['./app/config/config.json'],
+        src: ['./src/config/config.json'],
         dest: 'dist/config'
     },
     fonts: {
@@ -45,7 +45,7 @@ var config = {
         }
     },
     images: {
-        src: ['./app/images/*.*'],
+        src: ['./src/images/*.*'],
         dest: 'dist/images'
     },
     css: {
@@ -65,7 +65,7 @@ var config = {
 }
 
 gulp.task('tslint', function () {
-    return gulp.src('app/*.ts')
+    return gulp.src('src/*.ts')
         .pipe(tslint())
         .pipe(tslint.report('verbose'))
 });
@@ -81,9 +81,9 @@ gulp.task('tsc', function () {
 //tsc needs to be completed before browserify
 //https://github.com/gulpjs/gulp/issues/96#issuecomment-33512519
 gulp.task('browserify', ['tsc'], function () {
-    return browserify({ entries: './app/app.js', debug: true })
+    return browserify({ entries: './src/shared/js/index.js', debug: true })
         .bundle()
-        .pipe(source('app.js'))
+        .pipe(source('index.js'))
         .pipe(buffer())
         .pipe(ngAnnotate())
         .pipe(gulpif(argv.prod, uglify()))

@@ -1,0 +1,18 @@
+// <reference path="../typings/tsd.d.ts" />
+var ConfigDetailController = (function () {
+    function ConfigDetailController(clusterService) {
+        var _this = this;
+        this.clusterService = clusterService;
+        this.clusterService.getClusterConfig(this.id).then(function (cluster_config) {
+            _this.configData = cluster_config;
+        });
+    }
+    //Services that are used in this class.
+    ConfigDetailController.$inject = [
+        'ClusterService'
+    ];
+    return ConfigDetailController;
+})();
+exports.ConfigDetailController = ConfigDetailController;
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vZHVsZXMvY2x1c3RlcnMvY29uZmlnZGV0YWlsL2NvbmZpZy1kZXRhaWwudHMiXSwibmFtZXMiOlsiQ29uZmlnRGV0YWlsQ29udHJvbGxlciIsIkNvbmZpZ0RldGFpbENvbnRyb2xsZXIuY29uc3RydWN0b3IiXSwibWFwcGluZ3MiOiJBQUFBLDJDQUEyQztBQUkzQztJQVNJQSxnQ0FBb0JBLGNBQThCQTtRQVR0REMsaUJBY0NBO1FBTHVCQSxtQkFBY0EsR0FBZEEsY0FBY0EsQ0FBZ0JBO1FBQzlDQSxJQUFJQSxDQUFDQSxjQUFjQSxDQUFDQSxnQkFBZ0JBLENBQUNBLElBQUlBLENBQUNBLEVBQUVBLENBQUNBLENBQUNBLElBQUlBLENBQUNBLFVBQUNBLGNBQW1CQTtZQUNuRUEsS0FBSUEsQ0FBQ0EsVUFBVUEsR0FBR0EsY0FBY0EsQ0FBQ0E7UUFDckNBLENBQUNBLENBQUNBLENBQUNBO0lBQ1BBLENBQUNBO0lBVERELHVDQUF1Q0E7SUFDaENBLDhCQUFPQSxHQUFrQkE7UUFDNUJBLGdCQUFnQkE7S0FDbkJBLENBQUNBO0lBT05BLDZCQUFDQTtBQUFEQSxDQWRBLEFBY0NBLElBQUE7QUFkWSw4QkFBc0IseUJBY2xDLENBQUEiLCJmaWxlIjoibW9kdWxlcy9jbHVzdGVycy9jb25maWdkZXRhaWwvY29uZmlnLWRldGFpbC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIDxyZWZlcmVuY2UgcGF0aD1cIi4uL3R5cGluZ3MvdHNkLmQudHNcIiAvPlxuXG5pbXBvcnQge0NsdXN0ZXJTZXJ2aWNlfSBmcm9tICcuLi8uLi9yZXN0L2NsdXN0ZXJzJztcblxuZXhwb3J0IGNsYXNzIENvbmZpZ0RldGFpbENvbnRyb2xsZXIge1xuICAgIHByaXZhdGUgaWQ6IHN0cmluZztcbiAgICBwcml2YXRlIGNvbmZpZ0RhdGE6IGFueTtcblxuICAgIC8vU2VydmljZXMgdGhhdCBhcmUgdXNlZCBpbiB0aGlzIGNsYXNzLlxuICAgIHN0YXRpYyAkaW5qZWN0OiBBcnJheTxzdHJpbmc+ID0gW1xuICAgICAgICAnQ2x1c3RlclNlcnZpY2UnXG4gICAgXTtcblxuICAgIGNvbnN0cnVjdG9yKHByaXZhdGUgY2x1c3RlclNlcnZpY2U6IENsdXN0ZXJTZXJ2aWNlKSB7XG4gICAgICAgIHRoaXMuY2x1c3RlclNlcnZpY2UuZ2V0Q2x1c3RlckNvbmZpZyh0aGlzLmlkKS50aGVuKChjbHVzdGVyX2NvbmZpZzogYW55KSA9PiB7XG4gICAgICAgICAgICB0aGlzLmNvbmZpZ0RhdGEgPSBjbHVzdGVyX2NvbmZpZztcbiAgICAgICAgfSk7XG4gICAgfVxufVxuIl19
